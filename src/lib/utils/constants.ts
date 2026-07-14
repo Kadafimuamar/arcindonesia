@@ -1,6 +1,6 @@
-export const APP_NAME = "RangkumanKu";
+export const APP_NAME = "ARC INDONESIA";
 export const APP_DESCRIPTION =
-  "Blog editorial modern berbahasa Indonesia untuk membaca, mencari, dan mengelola tulisan.";
+  "Kumpulan Artikel dan Rangkuman ARC berbahasa Indonesia. Official : https://community.arc.io/ ";
 export const DEFAULT_PAGE_SIZE = 6;
 export const MAX_PAGE_SIZE = 24;
 export const COMMENT_MAX_PER_HOUR_DEFAULT = 5;

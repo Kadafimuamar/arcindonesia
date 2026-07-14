@@ -8,7 +8,7 @@ export function SiteFooter() {
         <div className="space-y-3">
           <p className="font-serif text-2xl font-semibold">{APP_NAME}</p>
           <p className="max-w-lg text-sm text-primary-foreground/75">
-            Blog editorial modern untuk rangkuman, opini, dan bacaan mendalam berbahasa Indonesia.
+            Kumpulan Rangkuman Arc Artikel Berbahasa Indonesia.
           </p>
         </div>
         <div>

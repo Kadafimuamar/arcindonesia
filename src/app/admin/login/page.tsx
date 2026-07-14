@@ -13,9 +13,9 @@ export default function AdminLoginPage() {
       <div className="grid w-full items-center gap-8 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="space-y-5">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-accent">Area admin</p>
-          <h1 className="font-serif text-5xl font-semibold text-primary">Kelola editorial RangkumanKu</h1>
+          <h1 className="font-serif text-5xl font-semibold text-primary">Kelola editorial</h1>
           <p className="max-w-xl text-base leading-8 text-muted-foreground">
-            Masuk menggunakan akun Supabase Auth yang sudah diberikan role admin pada tabel `profiles`.
+            Masuk menggunakan akun Admin.
           </p>
         </div>
         <Card>
