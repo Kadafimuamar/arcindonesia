@@ -111,27 +111,44 @@ language sql
 stable
 set search_path = public
 as $$
-  with filtered as (
-    select
-      p.*,
-      pr.display_name as author_name,
-      count(*) over() as total_count
-    from public.posts p
-    join public.profiles pr on pr.id = p.author_id
-    where p.status = 'published'
-      and p.deleted_at is null
-      and (
-        search_query is null
-        or length(trim(search_query)) = 0
-        or p.search_vector @@ plainto_tsquery('simple', search_query)
-      )
-    order by
-      case when sort_order = 'oldest' then p.published_at end asc nulls last,
-      case when sort_order <> 'oldest' then p.published_at end desc nulls last
-    offset greatest(page_number - 1, 0) * greatest(page_size, 1)
-    limit greatest(page_size, 1)
-  )
-  select * from filtered;
+  select
+    p.id,
+    p.title,
+    p.slug,
+    p.excerpt,
+    p.content,
+    p.cover_image_url,
+    p.status,
+    p.author_id,
+    pr.display_name as author_name,
+    p.seo_title,
+    p.seo_description,
+    p.published_at,
+    p.created_at,
+    p.updated_at,
+    p.deleted_at,
+    count(*) over() as total_count
+  from public.posts p
+  join public.profiles pr
+    on pr.id = p.author_id
+  where p.status = 'published'
+    and p.deleted_at is null
+    and (
+      search_query is null
+      or length(trim(search_query)) = 0
+      or p.search_vector @@ plainto_tsquery('simple', search_query)
+    )
+  order by
+    case
+      when sort_order = 'oldest'
+      then p.published_at
+    end asc nulls last,
+    case
+      when sort_order <> 'oldest'
+      then p.published_at
+    end desc nulls last
+  offset greatest(page_number - 1, 0) * greatest(page_size, 1)
+  limit greatest(page_size, 1);
 $$;
 
 drop trigger if exists profiles_set_updated_at on public.profiles;
