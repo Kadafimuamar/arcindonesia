@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 35 60% 97%;
+  --foreground: 218 41% 15%;
+  --card: 0 0% 100%;
+  --card-foreground: 218 41% 15%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 218 41% 15%;
+  --primary: 218 51% 17%;
+  --primary-foreground: 40 100% 98%;
+  --secondary: 30 80% 94%;
+  --secondary-foreground: 218 41% 15%;
+  --muted: 30 35% 92%;
+  --muted-foreground: 215 16% 38%;
+  --accent: 24 95% 56%;
+  --accent-foreground: 30 20% 12%;
+  --border: 30 18% 84%;
+  --input: 30 18% 84%;
+  --ring: 24 95% 56%;
+  --danger: 0 72% 50%;
+  --success: 142 71% 35%;
+  --radius: 1rem;
+}
+
+* {
+  @apply border-border;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-background text-foreground font-sans antialiased;
+  background-image:
+    radial-gradient(circle at top left, rgba(251, 146, 60, 0.12), transparent 24%),
+    linear-gradient(180deg, rgba(255, 247, 237, 0.5), rgba(255, 251, 235, 0.1));
+}
+
+a,
+button,
+input,
+textarea,
+select {
+  @apply outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+}
+
+.prose-rangkuman {
+  @apply max-w-none space-y-6 leading-8 text-foreground;
+}
+
+.prose-rangkuman h2,
+.prose-rangkuman h3,
+.prose-rangkuman h4 {
+  @apply font-serif font-semibold tracking-tight text-primary;
+}
+
+.prose-rangkuman h2 {
+  @apply mt-10 text-3xl;
+}
+
+.prose-rangkuman h3 {
+  @apply mt-8 text-2xl;
+}
+
+.prose-rangkuman p,
+.prose-rangkuman ul,
+.prose-rangkuman ol,
+.prose-rangkuman blockquote,
+.prose-rangkuman table {
+  @apply text-base md:text-lg;
+}
+
+.prose-rangkuman ul {
+  @apply list-disc pl-6;
+}
+
+.prose-rangkuman ol {
+  @apply list-decimal pl-6;
+}
+
+.prose-rangkuman blockquote {
+  @apply rounded-2xl border-l-4 border-accent bg-secondary p-6 italic;
+}
+
+.prose-rangkuman pre {
+  @apply overflow-x-auto rounded-2xl bg-primary p-4 text-sm text-primary-foreground;
+}
+
+.prose-rangkuman table {
+  @apply w-full overflow-hidden rounded-2xl border border-border;
+}
+
+.prose-rangkuman thead {
+  @apply bg-secondary;
+}
+
+.prose-rangkuman th,
+.prose-rangkuman td {
+  @apply border-b border-border px-4 py-3 text-left align-top;
+}
